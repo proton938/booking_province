@@ -1,0 +1,1732 @@
+<html>
+
+<head>
+	<meta charset = "utf-8">
+	<meta name="format-detection" content="telephone=no">
+
+	<link href = "css/styles.css" rel = "stylesheet"  type = "text/css" media = "all">
+	
+	<script type="text/javascript" src = "js/scripts.js"></script>
+	<script type="text/javascript" src = "js/jquery-3.1.1.js"></script>
+	
+	<link rel="shortcut icon" href="province_74/images/favicon.ico">	
+</head>
+
+<script type="text/javascript">
+$(function(){
+        $("a[href^='#']").click(function(){
+                var _href = $(this).attr("href");
+                $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+                return false;
+        });
+});
+</script>
+
+<body onload = "do_top_menu_turning(); 
+				var browser_width = document.body.clientWidth; 
+				document.getElementById('current_info').value = browser_width; 
+				active_top_menu();
+				search_block_house(); ">
+
+<center>
+<div id = "modal_window"  style = "position: fixed; top: 0px; left: 0px; overflow: auto; z-index: 0;" >	
+</div>
+</center>
+
+<div id = "all_blocks" style = "position: absolute; left: 0px; top: 0px; width: 100%;">
+
+<center>
+
+<img src="province_74/images/big_logo_provance.png" style="position: fixed; top: 0%; left: 1%; width: 10%; z-index: 999;">
+
+<script>
+	function search_block_house()
+		{
+			$("#modal_window").load("config/search_block_house.php");
+		}
+	window.onresize = function(event) {
+											var browser_width = document.body.clientWidth;
+											document.getElementById("current_info").value = browser_width;
+											
+											if (browser_width <=1150)
+												{
+													for (i=1; i<=8; i++)
+														{
+															document.getElementById("button_"+i).style.width = "100%";
+															document.getElementById("button_"+i).style.fontSize = "55px";
+															document.getElementById("button_"+i).style.textAlign = "right";
+															document.getElementById("button_"+i).style.padding = "10px 40px 10px 0px";
+														}
+													document.getElementById("top_menu").style.height = "auto";
+													document.getElementById("top_menu").style.zIndex = "999";
+													document.getElementById("top_menu").style.padding = "10px 10px 10px 0px";
+													document.getElementById("top_menu_buttons").style.display = "none";
+													document.getElementById("top_menu_turning").style.display = "block";
+												}
+											else
+												{
+													for (i=1; i<=8; i++)
+														{
+															document.getElementById("button_"+i).style.width = "auto";
+															if (browser_width > 1150 && browser_width < 1350)
+																{
+																	document.getElementById("button_"+i).style.fontSize = "15px";
+																}
+															if (browser_width >= 1350 && browser_width < 1500)
+																{
+																	document.getElementById("button_"+i).style.fontSize = "17px";
+																}
+															if (browser_width >= 1500 && browser_width < 3000)
+																{
+																	document.getElementById("button_"+i).style.fontSize = "20px";
+																}
+															document.getElementById("button_"+i).style.textAlign = "center";
+															document.getElementById("button_"+i).style.padding = "0px 15px 0px 15px";
+														}
+													document.getElementById("top_menu").style.height = "40px";
+													document.getElementById("top_menu").style.zIndex = "980";
+													document.getElementById("top_menu").style.padding = "0px 0px 0px 0px";
+													document.getElementById("top_menu_buttons").style.display = "block";
+													document.getElementById("top_menu_turning").style.display = "none";
+												}
+										};
+</script>
+<input type = "text" id = "current_info" style = "position: fixed; top: 300px; left: 50px; z-index: 999;">
+<input type = "hidden" id = "search_resultat_info" style = "position: fixed; top: 330px; left: 50px; z-index: 999;">
+
+
+<div id = "top_menu" class = "top_menu">
+	<div id = "top_menu_buttons" style = "float: right;">
+		<a href = "#home">
+			<input id = "button_1" type = "button" class = "top_menu_section" value = "ГЛАВНАЯ" onclick = "do_top_menu_turning()">
+		</a>
+		<a href = "#ng_holiday">
+			<input id = "button_2" type = "button" class = "top_menu_section" value = "НОВОГОДНИЕ ПРЕДЛОЖЕНИЯ" onclick = "do_top_menu_turning()">
+		</a>
+		<a href = "#news_action">
+			<input id = "button_3"  type = "button" class = "top_menu_section" value = "АКЦИИ И НОВОСТИ" onclick = "do_top_menu_turning()">
+		</a>
+		<a href = "#services">
+			<input id = "button_4"  type = "button" class = "top_menu_section" value = "РАЗВЛЕЧЕНИЯ" onclick = "do_top_menu_turning()">
+		</a>
+		<a href = "#rate">
+			<input id = "button_5"  type = "button" class = "top_menu_section" value = "ЦЕНЫ" onclick = "do_top_menu_turning()">
+		</a>
+		<a href = "#booking_sistem">
+			<input id = "button_6"  type = "button" class = "top_menu_section" value = "БРОНИРОВАНИЕ" onclick = "do_top_menu_turning()">
+		</a>
+		<a href = "#portfolio">
+			<input id = "button_7"  type = "button" class = "top_menu_section" value = "ГАЛЕРЕЯ" onclick = "do_top_menu_turning()">
+		</a>
+		<a  href = "#contact">
+			<input id = "button_8" type = "button" class = "top_menu_section" value = "КОНТАКТЫ" onclick = "do_top_menu_turning()">
+		</a>
+	</div>
+	<div id = "top_menu_turning" class = "top_menu_turning" onclick = "do_top_menu_buttons()">
+		<div style = "width: 100%; height: 15px; border-radius: 5px; background: #CAA79C;">
+		</div>
+		<br>
+		<div style = "width: 100%; height: 15px; border-radius: 5px; background: #CAA79C; margin-top: -5px;">
+		</div>
+		<br>
+		<div style = "width: 100%; height: 15px; border-radius: 5px; background: #CAA79C; margin-top: -5px;">
+		</div>
+	</div>
+</div>
+
+<script>
+	function do_top_menu_turning()
+		{
+			var browser_width = document.body.clientWidth;
+			if (browser_width <= 1150)
+				{
+					for (i=1; i<=8; i++)
+						{
+							document.getElementById("button_"+i).style.width = "100%";
+							document.getElementById("button_"+i).style.fontSize = "55px";
+							document.getElementById("button_"+i).style.textAlign = "right";
+							document.getElementById("button_"+i).style.padding = "10px 40px 10px 0px";
+						}
+					document.getElementById("top_menu").style.height = "auto";
+					document.getElementById("top_menu").style.zIndex = "999";
+					document.getElementById("top_menu").style.padding = "10px 10px 10px 0px";
+					
+					document.getElementById("top_menu_turning").style.display = "block";
+					document.getElementById("top_menu_buttons").style.display = "none";
+				}
+		}
+		
+	function do_top_menu_buttons()
+		{
+			var browser_width = document.body.clientWidth;
+			if (browser_width <= 1150)
+				{
+					document.getElementById("top_menu").style.height = "auto";
+					document.getElementById("top_menu").style.zIndex = "999";
+					document.getElementById("top_menu").style.padding = "10px 10px 10px 0px";
+					
+					document.getElementById("top_menu_turning").style.display = "none";
+					document.getElementById("top_menu_buttons").style.display = "block";
+				}
+		}
+</script>
+
+
+<a style = "position: fixed; top: 60px; right: 20px; z-index: 998;" href = "https://vk.com/clubprovincia" target = "_blank">
+	<img src = "province_74/images/vk.png" style = "width: 40px;">
+</a>
+
+
+
+<!-- Слайдер -->
+<div id = "home" class = "tmpl_booking" style = "position: relative; height: 1000px; width: 100%; overflow: hidden; ">
+	<div class = "parallax background_fixed" style = "background-image: url(province_74/images/slider/1.jpg);">
+	</div>
+</div>
+
+
+
+<div class = "tmpl_booking" id="ng_holiday" >
+	<br><br>
+	<p style = "color: rgba(113, 76, 70, 1); font-size: 60px; font-weight: bold; font-family: calibri;">Новогодние предложения</p>
+	<br><br>
+	
+	<div>
+		<img src = "province_74/images/ng/ng_2018_1.jpg" style = "width: 40%;">
+	</div>
+	
+	<br><br><br><br><br><br>
+	<div class = "parallax tmpl_booking background_fixed" style = "height: 400px; width: 100%; background-image: url(province_74/images/winter.jpg);"></div>
+</div>
+
+
+
+
+
+
+<!--     												РАЗДЕЛ АКЦИИ -->
+
+<div class = "tmpl_booking" id="news_action"  >
+	<br><br>
+	<p style = "color: rgba(113, 76, 70, 1); font-size: 60px; font-weight: bold; font-family: calibri;">Aкции и новости</p>
+	<br><br>
+	
+	<table cellpadding = "10px" style = "width: 80%; border: solid 1px #eee;">
+		<tr style = "vertical-align: top;">
+			<td style = "width: 40%">
+				<div>
+					<img src = "province_74/images/action/action_2.jpg" style = "width: 100%;">
+				</div>
+			</td>
+			<td style = "border: solid 1px #eee; width: 40%;" >
+				<div style = "border: none; width: 100%;">	
+					<p style = "font-size: 25px; color: red; text-align: center;">
+						Мамочки с детьми, или бабушки (вторые мамы)) со внуками! <br> 
+					</p><br>
+					<p style = "padding-left: 20px; text-align: left;">
+						Для вас есть прекрасное предложение с отличной скидкой! <br>
+						Минус 25 % - это не температура, это СОЦИАЛЬНАЯ АКЦИЯ по снижению цены на ПРОЖИВАНИЕ И ПИТАНИЕ в Клуб-отель "Старая провинция", озеро Кумкуль. 
+						<br><br>
+						Предложение действительно до 10.12.18<br>
+						Проживание в номере "Комфорт", питание: полный пансион на 2 персоны, фиточай, кислородный коктейль и детская анимация.
+						на 3 дня = 7200 рублей (включена скидка 25%)
+						на 5 дней = 12000 рублей (включена скидка 25%)<br><br><br><br><br><br><br><br><br>
+						<br><br>
+						<center>
+						<span style = "style: text-align: right;">Бронируем по номеру +7(351)200-43-03 / 07</span>
+						</center>
+					</p>			
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	<br><br><br><br><br><br><br><br><br><br>
+	<div class = "parallax tmpl_booking background_fixed" style = "height: 400px; width: 100%; background-image: url(province_74/images/features-bg.jpg);"></div>
+</div>
+
+
+
+<div class = "tmpl_booking" id = "services">
+	<br><br>
+	<p style = "color: rgba(113, 76, 70, 1); font-size: 60px; font-weight: bold; font-family: calibri;">Развлечения</p>
+	<div style = "color: #888; margin-top: -50px; ">
+		Атмосфера упоительного единения с природой, свежий воздух и чистая вода озера Кумкуль  				<br>
+	подарят Вам настоящий релакс, наполнят энергией и первозданной силой.									<br>
+	Любители рыбалки будут приятно удивлены своим уловом: в озере водятся окунь и щука, гольян и сиг.		<br>
+	Для маленьких гостей открытая летняя детская площадка.													<br>
+	Вся наша территория безопасна и обработана от насекомых (клещи, комары) 
+	</div>
+	<br><br><br><br>
+	
+	<div style = "display: table; width: 100%;" >
+		<div class = "adaptive_tbl_3">
+			<div class = "adaptive_tbl_2">
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px; cursor: pointer;">
+					<div class = "min_image_text" style = "top: 5%;">
+						Активный отдых
+					</div>
+					<div class = "min_image_text" style = "top: 5%;">
+						Активный отдых
+					</div>
+					<img src = "province_74/images/dosug/active_holiday.jpg" style = "width: 100%;">
+				</div>
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px; cursor: pointer;">
+					<div class = "min_image_text" style = "top: 5%;">
+						Отдых с детьми
+					</div>
+					<div class = "min_image_text" style = "top: 5%;">
+						Отдых с детьми
+					</div>
+					<img src = "province_74/images/dosug/child_holiday.jpg" style = "width: 100%;">
+				</div>
+			</div>
+			<div class = "adaptive_tbl_2">
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px; cursor: pointer;">
+					<div class = "min_image_text" style = "top: 5%;">
+						Рыбалка
+					</div>
+					<div class = "min_image_text" style = "top: 5%;">
+						Рыбалка
+					</div>
+					<img src = "province_74/images/dosug/fish_love_sml.jpg" style = "width: 100%;">
+				</div>
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px; cursor: pointer;">
+					<div class = "min_image_text" style = "top: 5%;">
+						Сауна
+					</div>
+					<div class = "min_image_text" style = "top: 5%;">
+						Сауна
+					</div>
+					<img src = "province_74/images/dosug/bathhouse_sml.jpg" style = "width: 100%;">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<br><br><br><br><br>
+	<div class = "parallax tmpl_booking background_fixed" style = "height: 400px; background-image: url(province_74/images/about-bg.jpg);"></div>
+</div>
+
+
+<div class = "tmpl_booking" id="rate"  >
+	<br><br>
+	<p style = "color: rgba(113, 76, 70, 1); font-size: 60px; font-weight: bold; font-family: calibri;">Цены</p>
+	<br><br>
+	
+	<br><br><br><br><br>
+	<div class = "parallax tmpl_booking background_fixed" style = "height: 400px; width: 100%; background-image: url(province_74/images/twitter-bg.jpg);"></div>
+</div>
+
+
+
+<!-- Блок системы бронирования -->
+
+<div class = "tmpl_booking" id = "booking_sistem" style = "background: #CAA79C;">
+	
+	<img src = "images/tmpl_booking.png" class = "tmpl_booking">
+	
+	<input id = "my_history" name = "my_history" style = "position: absolute; left: 75%; top: 100px; z-index: 10;" type = "hidden" value = "" >  <!-- хранилище имен файлов оперативной истории -->
+	
+	<div id = "time_control" style = "position: absolute; background: #fff; left: 75%; top: 150px; width: 300px; height: 100px; overflow: auto; z-index: 10; display: none;" ></div> 	<!-- оперативная запись текущего времени -->
+	
+	
+	<div class = "basic_template">
+		
+		<script>
+			var t_left_right;
+			
+			function drag_map_right()
+				{
+					var scroll_value = document.getElementById("map_display").scrollLeft;
+					scroll_value = scroll_value + 10;
+					document.getElementById("map_display").scrollLeft = scroll_value;
+					t_left_right = setTimeout("drag_map_right()", 10);
+				} 
+			
+			function drag_map_left()
+				{
+					var scroll_value = document.getElementById("map_display").scrollLeft;
+					scroll_value = scroll_value - 10;
+					document.getElementById("map_display").scrollLeft = scroll_value;
+					t_left_right = setTimeout("drag_map_left()", 10);
+				}
+
+			function show_coords(event)
+				{
+				  var x = event.clientX;
+				  document.getElementById("coords").value = x;
+				  document.getElementById("map_display").scrollLeft = x - 460;
+				}
+		</script>
+		
+
+		<div id = "booking_interface" style = "position: absolute; top: 0px; left: 0px; width: 100%; background: #CAA79C; padding-bottom: 10px; z-index: 990;">
+
+			<div	style = "position: absolute; width: 100%; height: 65px; background: #CAA79C; z-index: 5; font-size: 30px; color: #fff; font-family: pragmatica;">
+						Система online-бронирования домов<br>
+						<a style = "font-size: 20px;">выберите номер дома по клавише в списке или на карте</a>
+			</div>
+			
+			<div id = "account_display" class = "account_display">				
+			</div>
+			
+			<div class = "input_account"> 
+				
+				<table style = "border-bottom: solid 1px #fff;">
+					<tr>
+						<td>
+							<div style = "color: #fff; padding-bottom: 5px; " >Вход в аккаунт:</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div style = "padding-bottom: 10px; " >
+								<input type = "text" id = "tel_or_mail" style = "border: solid 1px #CAA79C; height: 25px; padding-left: 5px; border-style: inset;" placeholder = "Телефон или email" >
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div style = "padding-bottom: 10px; " >
+								<input type = "password" id = "my_password" style = "border: solid 1px #CAA79C; height: 25px; padding-left: 5px; border-style: inset;" placeholder = "Пароль" >
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div style = "padding-bottom: 35px;" >
+								<input id = "input_account" type = "button" class = "final_button" style = "float: right;" onclick = "load_read_account()" value = "Войти" >
+								<input id = "output_account" type = "button" class = "final_button" style = "float: right; display: none;" onclick = "unload_read_account()" value = "Выход" >
+							</div>
+						</td>
+					</tr>
+				</table>
+								
+				<div id = "reg_button" style = "padding: 20px 0px 10px 0px; width: 100%; " >
+					<input type = "button" class = "final_button" onclick = "load_registration()" value = "Регистрация" >
+				</div>
+				<div id = "reg_button_noactive" style = "padding: 20px 0px 10px 0px; width: 100%; display: none;" >
+					<input type = "button" class = "final_button_noactive" value = "Регистрация" >
+				</div>
+										
+			</div>
+			
+			<div id = "house_panel" class = "house_panel"> 
+			
+				<div style = "position: absolute; top: 0px; left: 0px; z-index: 1; width: 100%; height: 100%; background: #CAA79C; border-radius: 3px;">
+				</div>
+				
+				<strong>
+				
+				<div style = "position: relative; float: left; width: 100%; color: #fff; padding: 5px 0px 5px 0px; z-index: 4; letter-spacing: 2px; " >
+					<a style = "float: left; margin-left: 5px;">Список домов:</a>
+				</div>
+				
+				<div style = "position: relative; width: 100%;">				
+					<div 	class = "top_button" 
+							onclick = "load_read_base_1()"
+							>
+								1
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_2()"
+							>
+								2
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_3()"
+							>
+								3
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_4()"
+							>
+								4
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_5()"
+							>
+								5
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_6()"
+							>
+								6
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_7()"
+							>
+								7
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_8()"
+							>
+								8
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_9()"
+							>
+								9
+					</div>
+					
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_11()"
+							>
+								11
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_12()"
+							>
+								12
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_13()"
+							>
+								13
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_14()"
+							>
+								14
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_15()"
+							>
+								15
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_16()"
+							>
+								16
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_17()"
+							>
+								17
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_18()"
+							>
+								18
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_19()"
+							>
+								19
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_20()"
+							>
+								20
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_21()"
+							>
+								21
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_22()"
+							>
+								22
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_23()"
+							>
+								23
+					</div>
+					
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_24()"
+							>
+								24
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_25()"
+							>
+								25
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_26()"
+							>
+								26
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_27()"
+							>
+								27
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_28()"
+							>
+								28
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_29()"
+							>
+								29
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_30()"
+							>
+								30
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_31()"
+							>
+								31
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_32()"
+							>
+								32
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_33()"
+							>
+								33
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_34()"
+							>
+								34
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_35()"
+							>
+								35
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_36()"
+							>
+								36
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_37()"
+							>
+								37
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_38()"
+							>
+								38
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_39()"
+							>
+								39
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_40()"
+							>
+								40
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_41()"
+							>
+								41
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_42()"
+							>
+								42
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_43()"
+							>
+								43
+					</div>
+					
+					<div 	class = "top_button" 
+							onclick = "load_read_base_44()"
+							>
+								44
+					</div>
+				</div>
+				</strong>
+				
+			</div>
+			
+		</div>
+		
+		
+		<div id = "map_club_province"  style = "position: relative; top: 60px; vertical-align: center; width: 100%; overflow: hidden;">
+							
+				<div class = "map_left" onmouseover = "drag_map_left()" onmouseout = "clearTimeout(t_left_right)"></div>					
+				<div class = "map_right" onmouseover = "drag_map_right()" onmouseout = "clearTimeout(t_left_right)"></div>
+				
+				
+				<div id = "map_display" style = "position: relative; width: 100%"  class = "wall"  onmousemove="" >					
+				
+					
+					<div>
+																
+						
+						<img src = "images/map2.jpg" style = "position: relative; width: 160%; z-index: 0; " >    <!-- изображение карты -->
+						
+						
+						<div 	id = "house_1"
+								class = "house_div" 
+								style = "position: absolute; left: 42%; top: 33.8%; width: 3%;" 
+								onclick = "load_read_base_1()">
+							<img 	 
+									src = "images/house_1.png" 
+									style = "position: relative; float: left; top: 0%; left: 0%; width: 100%;"
+									onmouseover = "load_house_1_foto1(); this.style.width = '20%';"
+									onmouseout = "unload_house_1_foto1(); this.style.width = '100%';" >
+							<div id = "house_1_foto1">
+							</div>
+						</div>
+						
+						<div  id = "house_1_block" style = "position: absolute; left: 42%; top: 33.8%; width: 3%; display: none;" >
+							<img 	 
+									src = "images/house_1_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_2"
+								class = "house_div" 
+								style = "position: absolute; left: 51%; top: 34.5%; width: 3%;"
+								onclick = "load_read_base_2()" >
+							<img 	 
+									src = "images/house_2.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_2_foto1(); this.style.width = '20%';" 
+									onmouseout = "unload_house_2_foto1(); this.style.width = '100%';" >					
+							<div id = "house_2_foto1">
+							</div>
+						</div>
+						
+						<div  id = "house_2_block" style = "position: absolute; left: 51%; top: 34.5%; width: 3%; display: none;" >
+							<img 	 
+									src = "images/house_2_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_3"
+								class = "house_div" 
+								style = "position: absolute; left: 54%; top: 33.8%; width: 3%;"
+								onclick = "load_read_base_3()" >
+							<img 	
+									src = "images/house_3.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_3_foto1(); this.style.width = '20%';" 
+									onmouseout = "unload_house_3_foto1(); this.style.width = '100%';" >
+							<div id = "house_3_foto1">
+							</div>
+						</div>
+						
+						<div  id = "house_3_block" style = "position: absolute; left: 54%; top: 33.8%; width: 3%; display: none;" >
+							<img 	 
+									src = "images/house_3_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_4"	
+								class = "house_div" 
+								style = "position: absolute; left: 64%; top: 30%; width: 8%;"
+								onclick = "load_read_base_4()" >
+							<img 	 
+									src = "images/house_4.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_4_foto1(); this.style.width = '45%';" 
+									onmouseout = "unload_house_4_foto1(); this.style.width = '100%';" >
+							<div id = "house_4_foto1">
+							</div>
+						</div>
+						
+						<div  id = "house_4_block" style = "position: absolute; left: 64%; top: 30%; width: 8%; display: none;" >
+							<img 	 
+									src = "images/house_4_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_5"
+								class = "house_div" 
+								style = "position: absolute; left: 80.5%; top: 29%; width: 4%;"
+								onclick = "load_read_base_5()" >
+							<img 	
+									src = "images/house_5.png"
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_5_foto1(); this.style.width = '25%';" 
+									onmouseout = "unload_house_5_foto1(); this.style.width = '100%';" >
+							<div id = "house_5_foto1">
+							</div>
+						</div>
+						
+						<div  id = "house_5_block" style = "position: absolute; left: 80.5%; top: 29%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_5_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_6"
+								class = "house_div" 
+								style = "position: absolute; left: 90.5%; top: 37.5%; width: 3.5%;"
+								onclick = "load_read_base_6()" >
+							<img 	 
+									src = "images/house_6.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_6_foto1(); this.style.width = '25%';" 
+									onmouseout = "unload_house_6_foto1(); this.style.width = '100%';" >
+							<div id = "house_6_foto1">
+							</div>
+						</div>
+						
+						<div  id = "house_6_block" style = "position: absolute; left: 90.5%; top: 37.5%; width: 3.5%; display: none;" >
+							<img 	 
+									src = "images/house_6_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_7"
+								class = "house_div" 
+								style = "position: absolute; left: 59.3%; top: 62%; width: 5%;"
+								onclick = "load_read_base_7()" >
+							<img 	 
+									src = "images/house_7.png"
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_7_foto1(); this.style.width = '25%';" 
+									onmouseout = "unload_house_7_foto1(); this.style.width = '100%';" >
+							<div id = "house_7_foto1">
+							</div>
+						</div>
+						
+						<div  id = "house_7_block" style = "position: absolute; left: 59.3%; top: 62%; width: 5%; display: none;" >
+							<img 	 
+									src = "images/house_7_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_8"
+								class = "house_div" 
+								style = "position: absolute; left: 54%; top: 60%; width: 4%;"
+								onclick = "load_read_base_8()" >
+							<img 	 
+									src = "images/house_8.png"
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_8_foto1(); this.style.width = '25%';" 
+									onmouseout = "unload_house_8_foto1(); this.style.width = '100%';" >
+							<div id = "house_8_foto1">
+							</div>
+						</div>
+						
+						<div  id = "house_8_block" style = "position: absolute; left: 54%; top: 60%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_8_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_9"
+								class = "house_div" 
+								style = "position: absolute; left: 46%; top: 57%; width: 4%;"
+								onclick = "load_read_base_9()" >
+							<img 	
+									src = "images/house_9.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_9_foto1(); this.style.width = '25%';" 
+									onmouseout = "unload_house_9_foto1(); this.style.width = '100%';" >
+							<div id = "house_9_foto1">
+							</div>
+						</div>
+						
+						<div  id = "house_9_block" style = "position: absolute; left: 46%; top: 57%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_9_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<img src = "images/house_10.png" style = "position: absolute; z-index: 1; left: 50%; top: 58%; width: 4%;">
+						
+						
+						<div 	id = "house_11"
+								class = "house_div" 
+								style = "position: absolute; left: 77.2%; top: 47.2%; width: 4.5%;"
+								onclick = "load_read_base_11()" >
+							<img 	 
+									src = "images/house_11.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_11_foto1(); this.style.width = '25%';" 
+									onmouseout = "unload_house_11_foto1(); this.style.width = '100%';"	>
+							<div id = "house_11_foto1">
+							</div>
+						</div>
+						
+						<div  id = "house_11_block" style = "position: absolute; left: 77.2%; top: 47.2%; width: 4.5%; display: none;" >
+							<img 	 
+									src = "images/house_11_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_12"
+								class = "house_div" 
+								style = "position: absolute; left: 82%; top: 55%; width: 4.5%;"
+								onclick = "load_read_base_12()" >
+							<img 	 
+									src = "images/house_12.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_12_foto1(); this.style.width = '25%';" 
+									onmouseout = "unload_house_12_foto1(); this.style.width = '100%';" >
+							<div id = "house_12_foto1">
+							</div>
+						</div>
+						
+						<div  id = "house_12_block" style = "position: absolute; left: 82%; top: 55%; width: 4.5%; display: none;" >
+							<img 	 
+									src = "images/house_12_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div  id = "house_13" 
+								class = "house_div" 
+								style = "position: absolute; left: 82.3%; top: 44%; width: 4.5%;"
+								onclick = "load_read_base_13()"	>
+							<img 	 
+									src = "images/house_13.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_13_foto1(); this.style.width = '25%';" 
+									onmouseout = "unload_house_13_foto1(); this.style.width = '100%';"	>
+							<div id = "house_13_foto1">
+							</div>
+						</div>						
+						
+						<div id = "house_13_block" style = "position: absolute; left: 82.2%; top: 43.6%; width: 4.5%; display: none;" >
+							<img 	 
+									src = "images/house_13_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_14"
+								class = "house_div" 
+								style = "position: absolute; left: 91%; top: 59%; width: 5%;"
+								onclick = "load_read_base_14()" >
+							<img 	 
+									src = "images/house_14.png"
+									style = "position: relative; float: left; width: 100%;"						
+									onmouseover = "load_house_14_foto1(); this.style.width = '25%';" 
+									onmouseout = "unload_house_14_foto1(); this.style.width = '100%';" >
+							<div id = "house_14_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_14_block" style = "position: absolute; left: 91%; top: 59%; width: 5%; display: none;" >
+							<img 	 
+									src = "images/house_14_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_15"
+								class = "house_div" 
+								style = "position: absolute; left: 88%; top: 63%; width: 4%;"
+								onclick = "load_read_base_15()" >
+							<img 	 
+									src = "images/house_15.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_15_foto1(); this.style.width = '25%';" 
+									onmouseout = "unload_house_15_foto1(); this.style.width = '100%';" >
+							<div id = "house_15_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_15_block" style = "position: absolute; left: 88%; top: 63%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_15_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_16"
+								class = "house_div" 
+								style = "position: absolute; left: 89.8%; top: 71%; width: 3.5%;"
+								onclick = "load_read_base_16()" >
+							<img 	 
+									src = "images/house_16.png"
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_16_foto1(); this.style.width = '25%';" 
+									onmouseout = "unload_house_16_foto1(); this.style.width = '100%';" >
+							<div id = "house_16_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_16_block" style = "position: absolute; left: 89.8%; top: 71%; width: 3.5%; display: none;" >
+							<img 	 
+									src = "images/house_16_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_17"
+								class = "house_div" 
+								style = "position: absolute; left: 80%; top: 72.5%; width: 5.5%;"
+								onclick = "load_read_base_17()" >
+							<img 	 
+									src = "images/house_17.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_17_foto1(); this.style.width = '28%';" 
+									onmouseout = "unload_house_17_foto1(); this.style.width = '100%';" >
+							<div id = "house_17_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_17_block" style = "position: absolute; left: 80%; top: 72.5%; width: 5.5%; display: none;" >
+							<img 	 
+									src = "images/house_17_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						
+						<div 	id = "house_18"	
+								class = "house_div" 
+								style = "position: absolute; left: 72.5%; top: 70.8%; width: 5.5%;"
+								onclick = "load_read_base_18()" >
+							<img 	 
+									src = "images/house_18.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_18_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_18_foto1(); this.style.width = '100%';"	>
+							<div id = "house_18_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_18_block" style = "position: absolute; left: 72.5%; top: 70.8%; width: 5.5%; display: none;" >
+							<img 	 
+									src = "images/house_18_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_19"	
+								class = "house_div" 
+								style = "position: absolute; left: 50.5%; top: 65.5%; width: 4%;"
+								onclick = "load_read_base_19()" >
+							<img 	 
+									src = "images/house_19.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_19_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_19_foto1(); this.style.width = '100%';"	>
+							<div id = "house_19_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_19_block" style = "position: absolute; left: 50.5%; top: 65.5%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_19_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_20"	
+								class = "house_div" 
+								style = "position: absolute; left: 55.5%; top: 73.8%; width: 4%;"
+								onclick = "load_read_base_20()" >
+							<img 	 
+									src = "images/house_20.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_20_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_20_foto1(); this.style.width = '100%';"	>
+							<div id = "house_20_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_20_block" style = "position: absolute; left: 55.5%; top: 73.8%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_20_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_21"	
+								class = "house_div" 
+								style = "position: absolute; left: 64.2%; top: 76.5%; width: 4%;"
+								onclick = "load_read_base_21()" >
+							<img 	 
+									src = "images/house_21.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_21_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_21_foto1(); this.style.width = '100%';"	>
+							<div id = "house_21_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_21_block" style = "position: absolute; left: 64.2%; top: 76.5%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_21_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_22"	
+								class = "house_div" 
+								style = "position: absolute; left: 67.9%; top: 72.2%; width: 4%;"
+								onclick = "load_read_base_22()" >
+							<img 	 
+									src = "images/house_22.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_22_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_22_foto1(); this.style.width = '100%';"	>
+							<div id = "house_22_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_22_block" style = "position: absolute; left: 67.9%; top: 72.2%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_22_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+												
+						<div 	id = "house_23"	
+								class = "house_div" 
+								style = "position: absolute; left: 72%; top: 74.6%; width: 4%;"
+								onclick = "load_read_base_23()" >
+							<img 	 
+									src = "images/house_23.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_23_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_23_foto1(); this.style.width = '100%';"	>
+							<div id = "house_23_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_23_block" style = "position: absolute; left: 67.9%; top: 72.2%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_23_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_24"	
+								class = "house_div" 
+								style = "position: absolute; left: 72.2%; top: 79.8%; width: 4%;"
+								onclick = "load_read_base_24()" >
+							<img 	 
+									src = "images/house_24.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_24_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_24_foto1(); this.style.width = '100%';"	>
+							<div id = "house_24_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_24_block" style = "position: absolute; left: 72.2%; top: 79.8%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_24_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_25"	
+								class = "house_div" 
+								style = "position: absolute; left: 77.8%; top: 77.2%; width: 4%;"
+								onclick = "load_read_base_25()" >
+							<img 	 
+									src = "images/house_25.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_25_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_25_foto1(); this.style.width = '100%';"	>
+							<div id = "house_25_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_25_block" style = "position: absolute; left: 77.8%; top: 77.2%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_25_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_26"	
+								class = "house_div" 
+								style = "position: absolute; left: 90.5%; top: 82.4%; width: 3.6%;"
+								onclick = "load_read_base_26()" >
+							<img 	 
+									src = "images/house_26.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_26_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_26_foto1(); this.style.width = '100%';"	>
+							<div id = "house_26_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_26_block" style = "position: absolute; left: 90.5%; top: 82.4%; width: 3.6%; display: none;" >
+							<img 	 
+									src = "images/house_26_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_27"	
+								class = "house_div" 
+								style = "position: absolute; left: 93.8%; top: 75.7%; width: 3.4%;"
+								onclick = "load_read_base_27()" >
+							<img 	 
+									src = "images/house_27.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_27_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_27_foto1(); this.style.width = '100%';"	>
+							<div id = "house_27_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_27_block" style = "position: absolute; left: 93.8%; top: 75.7%; width: 3.4%; display: none;" >
+							<img 	 
+									src = "images/house_27_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_28"	
+								class = "house_div" 
+								style = "position: absolute; left: 97.3%; top: 32.7%; width: 3.2%;"
+								onclick = "load_read_base_28()" >
+							<img 	 
+									src = "images/house_28.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_28_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_28_foto1(); this.style.width = '100%';"	>
+							<div id = "house_28_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_28_block" style = "position: absolute; left: 97.3%; top: 32.7%; width: 3.2%; display: none;" >
+							<img 	 
+									src = "images/house_28_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_29"	
+								class = "house_div" 
+								style = "position: absolute; left: 101%; top: 31.5%; width: 3.2%;"
+								onclick = "load_read_base_29()" >
+							<img 	 
+									src = "images/house_29.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_29_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_29_foto1(); this.style.width = '100%';"	>
+							<div id = "house_29_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_29_block" style = "position: absolute; left: 101%; top: 31.5%; width: 3.2%; display: none;" >
+							<img 	 
+									src = "images/house_29_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_30"	
+								class = "house_div" 
+								style = "position: absolute; left: 105%; top: 31.6%; width: 3.2%;"
+								onclick = "load_read_base_30()" >
+							<img 	 
+									src = "images/house_30.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_30_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_30_foto1(); this.style.width = '100%';"	>
+							<div id = "house_30_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_30_block" style = "position: absolute; left: 105%; top: 31.6%; width: 3.2%; display: none;" >
+							<img 	 
+									src = "images/house_30_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_31"	
+								class = "house_div" 
+								style = "position: absolute; left: 108.5%; top: 30.7%; width: 3.2%;"
+								onclick = "load_read_base_31()" >
+							<img 	 
+									src = "images/house_31.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_31_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_31_foto1(); this.style.width = '100%';"	>
+							<div id = "house_31_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_31_block" style = "position: absolute; left: 108.5%; top: 30.7%; width: 3.2%; display: none;" >
+							<img 	 
+									src = "images/house_31_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_32"	
+								class = "house_div" 
+								style = "position: absolute; left: 105.4%; top: 22.1%; width: 4%;"
+								onclick = "load_read_base_32()" >
+							<img 	 
+									src = "images/house_32.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_32_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_32_foto1(); this.style.width = '100%';"	>
+							<div id = "house_32_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_32_block" style = "position: absolute; left: 105.4%; top: 22.1%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_32_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_33"	
+								class = "house_div" 
+								style = "position: absolute; left: 113.7%; top: 33.6%; width: 3.2%;"
+								onclick = "load_read_base_33()" >
+							<img 	 
+									src = "images/house_33.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_33_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_33_foto1(); this.style.width = '100%';"	>
+							<div id = "house_33_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_33_block" style = "position: absolute; left: 113.7%; top: 33.6%; width: 3.2%; display: none;" >
+							<img 	 
+									src = "images/house_33_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_34"	
+								class = "house_div" 
+								style = "position: absolute; left: 111%; top: 20.6%; width: 4%;"
+								onclick = "load_read_base_34()" >
+							<img 	 
+									src = "images/house_34.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_34_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_34_foto1(); this.style.width = '100%';"	>
+							<div id = "house_34_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_34_block" style = "position: absolute; left: 111%; top: 20.6%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_34_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_35"	
+								class = "house_div" 
+								style = "position: absolute; left: 114.7%; top: 29.2%; width: 4.5%;"
+								onclick = "load_read_base_35()" >
+							<img 	 
+									src = "images/house_35.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_35_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_35_foto1(); this.style.width = '100%';"	>
+							<div id = "house_35_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_35_block" style = "position: absolute; left: 114.7%; top: 29.2%; width: 4.5%; display: none;" >
+							<img 	 
+									src = "images/house_35_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_36"	
+								class = "house_div" 
+								style = "position: absolute; left: 115.6%; top: 22.7%; width: 4%;"
+								onclick = "load_read_base_36()" >
+							<img 	 
+									src = "images/house_36.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_36_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_36_foto1(); this.style.width = '100%';"	>
+							<div id = "house_36_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_36_block" style = "position: absolute; left: 115.6%; top: 22.7%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_36_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_37"	
+								class = "house_div" 
+								style = "position: absolute; left: 120.5%; top: 27.8%; width: 3.6%;"
+								onclick = "load_read_base_37()" >
+							<img 	 
+									src = "images/house_37.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_37_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_37_foto1(); this.style.width = '100%';"	>
+							<div id = "house_37_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_37_block" style = "position: absolute; left: 120.5%; top: 27.8%; width: 3.6%; display: none;" >
+							<img 	 
+									src = "images/house_37_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_38"	
+								class = "house_div" 
+								style = "position: absolute; left: 120.8%; top: 20.5%; width: 4%;"
+								onclick = "load_read_base_38()" >
+							<img 	 
+									src = "images/house_38.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_38_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_38_foto1(); this.style.width = '100%';"	>
+							<div id = "house_38_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_38_block" style = "position: absolute; left: 120.8%; top: 20.5%; width: 4%; display: none;" >
+							<img 	 
+									src = "images/house_38_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_39"	
+								class = "house_div" 
+								style = "position: absolute; left: 124.2%; top: 27%; width: 3.6%;"
+								onclick = "load_read_base_39()" >
+							<img 	 
+									src = "images/house_39.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_39_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_39_foto1(); this.style.width = '100%';"	>
+							<div id = "house_39_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_39_block" style = "position: absolute; left: 124.2%; top: 27%; width: 3.6%; display: none;" >
+							<img 	 
+									src = "images/house_39_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_40"	
+								class = "house_div" 
+								style = "position: absolute; left: 124%; top: 31.8%; width: 3.6%;"
+								onclick = "load_read_base_40()" >
+							<img 	 
+									src = "images/house_40.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_40_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_40_foto1(); this.style.width = '100%';"	>
+							<div id = "house_40_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_40_block" style = "position: absolute; left: 124%; top: 31.8%; width: 3.6%; display: none;" >
+							<img 	 
+									src = "images/house_40_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_41"	
+								class = "house_div" 
+								style = "position: absolute; left: 129.5%; top: 33%; width: 4.3%;"
+								onclick = "load_read_base_41()" >
+							<img 	 
+									src = "images/house_41.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_41_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_41_foto1(); this.style.width = '100%';"	>
+							<div id = "house_41_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_41_block" style = "position: absolute; left: 129.5%; top: 33%; width: 4.3%; display: none;" >
+							<img 	 
+									src = "images/house_41_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+						<div 	id = "house_42"	
+								class = "house_div" 
+								style = "position: absolute; left: 119.7%; top: 33.3%; width: 3.3%;"
+								onclick = "load_read_base_42()" >
+							<img 	 
+									src = "images/house_42.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_42_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_42_foto1(); this.style.width = '100%';"	>
+							<div id = "house_42_foto1">
+							</div>
+						</div>
+						
+						<div id = "house_42_block" style = "position: absolute; left: 119.7%; top: 33.3%; width: 3.3%; display: none;" >
+							<img 	 
+									src = "images/house_42_block.png" 
+									style = "position: relative; float: left; width: 100%;"
+										>
+						</div>
+						
+						
+
+						<div 	id = "house_43"	
+								class = "house_div" 
+								style = "position: absolute; left: 130.5%; top: 24%; width: 5.7%;"
+								onclick = "load_read_base_43()" >
+							<img 	 
+									src = "images/house_43.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_43_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_43_foto1(); this.style.width = '100%';"	> 
+							<div id = "house_43_foto1">
+							</div>
+						</div>
+						
+						<div  	id = "house_43_block" style = "position: absolute; left: 130.5%; top: 24%; width: 5.7%; display: none;" >
+							 <img 	 
+									src = "images/house_43_block.png" 
+									style = "position: relative; float: left; width: 100%;" 
+										> 
+						</div>
+						
+						
+						
+						<div 	id = "house_44"	
+								class = "house_div" 
+								style = "position: absolute; left: 126.7%; top: 18.7%; width: 4%;"
+								onclick = "load_read_base_44()" >
+							<img 	 
+									src = "images/house_44.png" 
+									style = "position: relative; float: left; width: 100%;"
+									onmouseover = "load_house_44_foto1(); this.style.width = '28%';"  
+									onmouseout = "unload_house_44_foto1(); this.style.width = '100%';"	>
+							<div id = "house_44_foto1">
+							</div>
+						</div>
+						
+						<div  	id = "house_44_block" style = "position: absolute; left: 126.7%; top: 18.7%; width: 4%; display: none;" >
+							 <img 	 
+									src = "images/house_44_block.png" 
+									style = "position: relative; float: left; width: 100%;" 
+										> 
+						</div>
+												
+						
+					</div>
+					
+					<img src = "images/description.png" style = "position: absolute; width: 23%; top: 45%; left: 108%;">
+				
+				</div>
+		</div>
+
+	</div>
+	
+</div>
+<!-- закрываем Блок системы бронирования -->
+
+
+<div class = "tmpl_booking" id="portfolio"  >
+	
+	<br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<p style = "color: rgba(113, 76, 70, 1); font-size: 60px; font-weight: bold; font-family: calibri;">Галерея</p>
+	<div style = "color: #888; margin-top: -50px; ">Приглашаем к сотрудничеству свадебные и праздничные агентства. </div>
+	<br><br><br><br>
+	
+	
+	<div style = "display: table; width: 100%;" >
+		<div class = "adaptive_tbl_3">
+			<div class = "adaptive_tbl_2">
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px;">
+					<img src = "province_74/images/portfolio/1.jpg" style = "width: 100%;">
+				</div>
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px;">
+					<img src = "province_74/images/portfolio/2.jpg" style = "width: 100%;">
+				</div>
+			</div>
+			<div class = "adaptive_tbl_2">
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px;">
+					<img src = "province_74/images/portfolio/3.jpg" style = "width: 100%;">
+				</div>
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px;">
+					<img src = "province_74/images/portfolio/4.jpg" style = "width: 100%;">
+				</div>
+			</div>
+		</div>
+		<div class = "adaptive_tbl_3">
+			<div class = "adaptive_tbl_2">
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px;">
+					<img src = "province_74/images/portfolio/5.jpg" style = "width: 100%;">
+				</div>
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px;">
+					<img src = "province_74/images/portfolio/6.jpg" style = "width: 100%;">
+				</div>
+			</div>
+			<div class = "adaptive_tbl_2">
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px;">
+					<img src = "province_74/images/portfolio/7.jpg" style = "width: 100%;">
+				</div>
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px;">
+					<img src = "province_74/images/portfolio/8.jpg" style = "width: 100%;">
+				</div>
+			</div>
+		</div>
+		<div class = "adaptive_tbl_3">
+			<div class = "adaptive_tbl_2">
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px;">
+					<img src = "province_74/images/portfolio/9.jpg" style = "width: 100%;">
+				</div>
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px;">
+					<img src = "province_74/images/portfolio/10.jpg" style = "width: 100%;">
+				</div>
+			</div>
+			<div class = "adaptive_tbl_2">	
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px;">
+					<img src = "province_74/images/portfolio/11.jpg" style = "width: 100%;">
+				</div>
+				<div class = "adaptive_tbl_1" style = "position: relative; padding: 3px;">
+					<img src = "province_74/images/portfolio/12.jpg" style = "width: 100%;">
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br><br><br><br><br>
+</div>
+
+
+
+
+
+<div class = "tmpl_booking" id="contact" >
+	<div class = "parallax tmpl_booking background_fixed" style = "height: 500px; width: 100%; background-image: url(province_74/images/contact-bg.jpg);">
+		<br>
+		<p style = "color: #fff; font-size: 60px; font-weight: bold; font-family: calibri; text-shadow: 2px 2px 2px rgba(113, 76, 70, 1);">Контакты</p>
+
+		<p class = "white_text" style = "font-weight: bold; font-size: 20px;" >
+								Мы находимся:<br> 
+								Россия, Челябинская область, Аргаяшский район, озеро Кумкуль,<br> 
+								Клуб-отель «Старая провинция» 
+								<br>Координаты для навигатора: 55.414430, 61.125968<br>
+								Администратор: +7(351) 200-43-03 / +7(351) 200-43-07  <br> 
+		email: <a class = "white_text" href="mailto: zakaz@province74.ru"> zakaz@province74.ru</a></p>                           
+	</div>
+
+	<div	style = "position: relative; width: 100%; height: 50px; background: #CAA79C; z-index: 5; font-size: 30px; color: #fff; font-family: pragmatica;">
+	</div>
+				
+	<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A20de30eab5484ae14dc403de88f2ca07e414fec1a09efe7f8aff0b989249f8ca&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
+		
+	<div	style = "position: relative; width: 100%; height: 50px; background: #CAA79C; z-index: 5; color: rgba(113, 76, 70, 1); font-family: calibri;">
+		<br>Клуб отель Старая провинция
+	</div>	
+</div>
+	
+</center>
+	
+</div>	
+
+</body>
+
+</html>

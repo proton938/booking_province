@@ -1,0 +1,12 @@
+* { margin: 0; padding: 0; }
+html {
+	width: 1900px;
+	height: 100%;
+}
+.water {
+	color: #fff;
+	background-image: url(../images/fon/water2.jpg);
+	height: 140%;
+	width: 1900px;
+	text-align: center;
+}

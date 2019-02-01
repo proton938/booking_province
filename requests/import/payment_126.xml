@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <table>HOTEL_ACCOUNTPAYMENTS</table>
+  <row>
+    <SITEPAY>9ipb2rlfejnm1fwnsswvn</SITEPAY>
+    <SITENUMBER>b2y8w2zr7v</SITENUMBER>
+    <DATEDOC>26.01.2019 12:07</DATEDOC>
+    <IDPAYMENTTYPE>77</IDPAYMENTTYPE>
+    <COMMENT>Оплата через сайт</COMMENT>
+    <SUMMA>10400</SUMMA>
+    <IDPROFITGROUP>11</IDPROFITGROUP>
+  </row>
+</data>

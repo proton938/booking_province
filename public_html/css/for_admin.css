@@ -1,0 +1,66 @@
+#house_select_panel div
+	{
+		position: relative; 
+		float: left;
+		font-family: pragmatica;
+		width: 30px; 
+		background: #CAA79C; 
+		border: solid #CAA79C 1px;
+		border-style: outset;
+		border-radius: 2px; 
+		padding: 10px; 
+		color: #fff;
+		z-index: 3;
+	}
+#house_select_panel div:hover
+	{
+		border-style: inset;
+		background: rgba(113, 76, 70, 1);
+		cursor: pointer;
+	}
+	
+	
+.user_prise_button
+	{
+		padding: 10px; 
+		background: rgba(255, 255, 255, 0.3); 
+		border: solid 1px #CAA79C; 
+		border-style: outset; 
+		cursor: pointer;
+		font-size: 14px;
+	}
+.user_prise_button:hover
+	{
+		border-style: inset;
+		color: #fff;
+	}
+	
+.request_table
+	{
+		width: 80%; 
+		background: rgba(245, 245, 245, 1);
+		border: border: dotted 2px #000;
+	}
+.request_table td
+	{
+		border: dotted 1px #ccc; 
+		background: #fff; 
+		width: 50%;
+		height: 30px;
+		padding-left: 10px;
+	}
+	
+	
+.output_payments
+	{
+		cursor: pointer;
+		border: dotted 1px #bbb;
+		background: #fff; 
+		margin-top: 10px;
+		padding-bottom: 10px;
+		width: 92%;
+	}
+	
+	
+	
+	

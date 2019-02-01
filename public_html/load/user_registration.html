@@ -1,0 +1,179 @@
+<div style = "position: absolute; width: 100%; height: 100%; z-index: 0;" onclick = "close_registration()"></div>
+
+<link href = "css/styles.css" rel = "stylesheet"  type = "text/css" media = "all">
+
+<br><br>
+
+<iframe name = "status" 
+		width = "800px" 
+		height = "50px" 
+		style = "border: none; position: relative; ">
+</iframe>
+
+<br><br>
+
+<div style = "	position: relative; 
+				width: 350px; 
+				border: solid 1px #CAA79C; 
+				border-style: outset;
+				background: #CAA79C;
+				display: inline-block; 
+				vertical-align: top;
+				
+				padding-top: 10px;
+				padding-bottom: 10px;
+				">
+
+<form method = "POST" enctype = "multipart/form-data" action = "../config/insert_registration.php" target = "status"> 
+
+<input type = "hidden" id = "again_my_history" name = "again_my_history" value = "" >
+
+	
+	<strong>
+		<a style = "position: absolute; left: 310px; top: 10px; " class = "close" onclick = "close_registration()">X</a>
+	
+	<br><br>
+	
+	<div id = "input_select_dates"></div> 			<!-- Выбранные даты для бронирования  -->
+	
+	</strong>
+	
+	<table >
+		<tr style = "height: 50px; ">
+			<td style = "width: 100px;">
+			<strong>
+				<a style = "color: #fff; padding-right: 15px; font-size: 15px; font-family: pragmatica;" >
+					Фамилия:
+				</a>
+			</strong>
+			</td>
+			<td >
+				<input type = "text" id = "surname" name = "surname" style = "border: solid 1px #CAA79C; border-style: inset; height: 25px; margin-top: 5px;" required> 
+			</td>
+		</tr>
+		<tr style = "height: 50px;">
+			<td >
+			<strong>
+				<a style = "color: #fff; padding-right: 15px; font-size: 15px; font-family: pragmatica; " >
+					Имя:
+				</a>
+			</strong>
+			</td>
+			<td >
+				<input type = "text" id = "name" name = "name" style = "border: solid 1px #CAA79C; border-style: inset; height: 25px; margin-top: 5px;" required> 
+			</td>
+		</tr>
+		<tr style = "height: 50px;">
+			<td>
+			<strong>
+				<a style = "color: #fff; padding-right: 15px; font-size: 15px; font-family: pragmatica;" >
+					Отчество:
+				</a>
+			</strong>
+			</td>
+			<td >
+				<input type = "text" id = "patronymic" name = "patronymic" style = "border: solid 1px #CAA79C; border-style: inset; height: 25px; margin-top: 5px;" required> 
+			</td>
+		</tr>
+	</table>
+	<br>
+	<table style = "border-top: solid 1px #fff;">
+		<tr style = "height: 50px;" >
+			<td style = "width: 100px;" >
+			<strong>
+				<a style = "color: #fff; padding-right: 15px; font-size: 15px; font-family: pragmatica;" >
+					Телефон:<br>
+					(цифры)
+				</a>
+			</strong>
+			</td>
+			<td >
+				<input type = "text" id = "telephone" pattern = "^[ 0-9]+$" name = "telephone" style = "border: solid 1px #CAA79C; border-style: inset; height: 25px; margin-top: 5px;" required>
+			</td>
+		</tr>
+	</table>
+	<script>
+		function send_sms()
+			{
+				var number = document.getElementById("telephone").value;
+				if (number != "")
+					{
+						$("#load_send_sms").load("config/send_sms.php", "number="+number);
+						document.getElementById("get_autorization").style.display = "none";
+						document.getElementById("noget_autorization").style.display = "block";
+					}
+				else
+					{
+						document.getElementById("load_send_sms").innerHTML = "<br>Не корректный номер!";
+					}
+			}
+	</script>
+	<div id = "get_autorization" class = "get_autorization" onclick = "send_sms()" >получить SMS с кодом</div>
+	<div id = "noget_autorization" class = "noget_autorization" >получить SMS с кодом</div>
+	<div style = "color: #8B0000;" id = "load_send_sms"></div>
+	<br>
+	<table style = "height: 30px;">
+		<tr style = "vertical-align: center;">
+			<td>
+				<a style = "color: #fff; padding-right: 15px; font-size: 15px; font-family: pragmatica;" >
+					Ввести код подтверждения:
+				</a>
+			</td>
+			<td>
+				<input type = "text" id = "autor_code" name = "autor_code" style = "border: solid 1px #CAA79C; border-style: inset; height: 25px; width: 50px; margin-top: 5px;" required>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<table style = "border-top: solid 1px #fff;" >	
+		<tr style = "height: 10px;">
+			<td>
+			</td>
+		</tr>
+		<tr style = "height: 50px;" >
+			<td style = "width: 100px;" >
+			<strong>
+				<a style = "color: #fff; padding-right: 15px; font-size: 15px; font-family: pragmatica;" >
+					Пароль:
+				</a>
+			</strong>
+			</td>
+			<td  >
+				<input type = "password" id = "new_password" name = "new_password" style = "border: solid 1px #CAA79C; border-style: inset; height: 25px; margin-top: 5px;" required>
+			</td>
+		</tr>
+		<tr style = "height: 50px;" >
+			<td style = "width: 100px;" >
+			<strong>
+				<a style = "color: #fff; padding-right: 15px; font-size: 15px; font-family: pragmatica;" >  
+					Повторить<br>пароль:
+				</a>
+			</strong>
+			</td>
+			<td  >
+				<input type = "password" id = "again_new_password" name = "again_new_password" style = "border: solid 1px #CAA79C; border-style: inset; height: 25px; margin-top: 5px;" required>
+			</td>
+		</tr>
+		<tr style = "height: 50px;" >
+			<td style = "width: 100px;" >
+			<strong>
+				<a style = "color: #fff; padding-right: 15px; font-size: 15px; font-family: pragmatica;" >
+					Email:
+				</a>
+			</strong>
+			</td>
+			<td  >
+				<input type = "text" id = "email" name = "email" style = "border: solid 1px #CAA79C; border-style: inset; height: 25px; margin-top: 5px;" >
+			</td>
+		</tr>
+	</table>
+			
+	<br><br>
+	
+	<center>
+	<input name = "reg_user" type = "submit" value = "Зарегистрироваться" onclick = "" class = "final_button">
+	</center>
+		
+</form>
+
+</div>

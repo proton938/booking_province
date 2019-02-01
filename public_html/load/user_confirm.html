@@ -1,0 +1,209 @@
+<!-- <div id = "fon_close_modal" style = "position: absolute; width: 100%; height: 100%; z-index: 0;" onclick = "close_modal()"></div> -->
+
+<link href = "css/styles.css" rel = "stylesheet"  type = "text/css" media = "all">
+
+<iframe id = "status_request"
+		name = "status" 
+		width = "0px" 
+		height = "0px" 
+		style = "border: none; position: relative; top: 0px; background: #fff; left: 0px; overflow: auto; -webkit-overflow-scrolling: touch; z-index: 900;">
+</iframe>
+
+<br><br>
+
+<div 	id = "form_insert_base"	
+		style = "	position: relative; 
+					width: 500px; 
+					border: solid 1px #CAA79C; 
+					border-style: outset;
+					background: #CAA79C;
+					display: inline-block; 
+					vertical-align: top;
+					padding-left: 40px;
+					padding-right: 40px;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					">
+
+<form method = "POST" enctype = "multipart/form-data" action = "../config/insert_base.php" target = "status"> 
+
+<input type = "hidden" id = "again_my_history" name = "again_my_history" value = "" >
+
+	
+	<strong>
+		<a style = "position: absolute; left: 540px; top: 10px; " class = "close" onclick = "close_modal()">X</a>
+	
+	<br><br>
+	
+	<div id = "input_select_dates"></div> 			<!-- Выбранные даты для бронирования  -->
+	
+	<br>
+	<a style = "color: #fff;  padding-right: 10px; font-size: 18px; font-family: pragmatica; float: left; " >
+		Сумма к оплате:
+	</a>
+	<input id = "sum_confirm" name = "sum_confirm" type = "text" class = "noredakt_text" style = "background: rgba(113, 76, 70, 1); padding-top: 5px; padding-bottom: 5px; text-align: right; float: left; border: solid 1px #CAA79C; border-style: inset;" readonly=true>
+	<br><br><br>
+	
+	</strong>
+	
+	<table style = "float: left;" >
+		<tr>
+			<td>
+			<strong>
+				<a style = "color: #fff; padding-right: 15px; font-size: 15px; font-family: pragmatica; float: left;" >
+					Фамилия:
+				</a>
+			</strong>
+			</td>
+			<td style = "padding-left: 20px;" >
+			<strong>
+				<a style = "color: #fff; padding-right: 15px; font-size: 15px; font-family: pragmatica; float: left;" >
+					Имя:
+				</a>
+			</strong>
+			</td>
+			<td style = "padding-left: 20px;" >
+			<strong>
+				<a style = "color: #fff; padding-right: 15px; font-size: 15px; font-family: pragmatica; float: left;" >
+					Отчество:
+				</a>
+			</strong>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type = "text" id = "surname" name = "surname" style = "border: solid 1px #CAA79C; border-style: inset; float: left; height: 25px; width: 100px; margin-top: 5px;" required> 
+			</td>
+			<td style = "padding-left: 20px;" >
+				<input type = "text" id = "name" name = "name" style = "border: solid 1px #CAA79C; border-style: inset; float: left; height: 25px; width: 100px; margin-top: 5px;" required> 
+			</td>
+			<td style = "padding-left: 20px;" >
+				<input type = "text" id = "patronymic" name = "patronymic" style = "border: solid 1px #CAA79C; border-style: inset; float: left; height: 25px; width: 100px; margin-top: 5px;" required> 
+			</td>
+		</tr>
+	</table>
+	
+	<br><br><br><br>
+	
+	<table style = "float: left;" >
+		<tr>
+			<td>
+			<strong>
+				<a style = "color: #fff; padding-right: 15px; font-size: 15px; font-family: pragmatica; float: left;" >
+					Телефон: <br> (только цифры)
+				</a>
+			</strong>
+			</td>
+			<td style = "padding-left: 20px;" >
+			<strong>
+				<a style = "color: #fff; padding-right: 15px; font-size: 15px; font-family: pragmatica; float: left;" >
+					Email:
+				</a>
+			</strong>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type = "text" id = "telephone" name = "telephone" pattern="^[ 0-9]+$" style = "border: solid 1px #CAA79C; border-style: inset; float: left; height: 25px; margin-top: 5px;" required>
+			</td>
+			<td style = "padding-left: 20px;" >
+				<input type = "email" id = "email" name = "email" style = "border: solid 1px #CAA79C; border-style: inset; float: left; height: 25px; margin-top: 5px;" >
+			</td>
+		</tr>
+	</table>
+		
+	<input type = "hidden" style = "width: 30px;" value = "77" id = "select_type_rate" name = "select_type_rate" />
+	
+	<br><br><br>
+	<br><br><br><br>
+	
+	
+	<input name = "payment_100" type = "submit" value = "Предоплата 100%" onclick = "payment_booking_100p()" class = "final_button" style = "float: right;">
+	<input name = "payment_30" type = "submit" value = "Предоплата 30%" onclick = "payment_booking_30p()" class = "final_button" style = "float: right;">
+			
+	<br><br>
+
+</form>
+
+<!-- <input 	type = "button" value = "Оплатить" onclick = "document.getElementById('status_request').height = 600+'px'; document.getElementById('form_insert_base').style.display = 'none';" class = "final_button" style = "float: right;"> -->
+
+</div>
+
+
+<a id = "get_close_modal" style = "position: relative; background: rgba(255, 165, 0, 1); z-index: 980; cursor: pointer; display: none; font-size: 45px; padding: 10px 0px 10px 0px; " onclick = "close_modal()">Выход</a>
+
+<script>
+	function payment_booking_30p() 
+		{
+			var all_verify = 0;
+			
+			var verify = document.getElementById("surname").value;
+			if (verify != "")
+				{
+					all_verify++;
+				}
+			var verify = document.getElementById("name").value;
+			if (verify != "")
+				{
+					all_verify++;
+				}
+			var verify = document.getElementById("patronymic").value;
+			if (verify != "")
+				{
+					all_verify++;
+				}
+			var verify = document.getElementById("telephone").value;
+			if (verify != "")
+				{
+					all_verify++;
+				}
+			
+			if (all_verify == 4)
+				{
+					document.getElementById("status_request").height = 90+"%";  
+					document.getElementById("status_request").width = 100+"%";
+					document.getElementById("form_insert_base").style.display = "none";
+					document.getElementById("get_close_modal").style.display = "block";
+					document.getElementById("modal_window").style.background = "#fff"; 
+				}
+		}
+		
+	function payment_booking_100p()
+		{
+			var all_verify = 0;
+			
+			var verify = document.getElementById("surname").value;
+			if (verify != "")
+				{
+					all_verify++;
+				}
+			var verify = document.getElementById("name").value;
+			if (verify != "")
+				{
+					all_verify++;
+				}
+			var verify = document.getElementById("patronymic").value;
+			if (verify != "")
+				{
+					all_verify++;
+				}
+			var verify = document.getElementById("telephone").value;
+			if (verify != "")
+				{
+					all_verify++;
+				}
+			
+			if (all_verify == 4)
+				{
+					document.getElementById("status_request").height = 90+"%"; 
+					document.getElementById("status_request").width = 100+"%";
+					document.getElementById("form_insert_base").style.display = "none";
+					document.getElementById("get_close_modal").style.display = "block";
+					document.getElementById("modal_window").style.background = "#fff";
+				}
+		}
+</script>
+
+
+
+
